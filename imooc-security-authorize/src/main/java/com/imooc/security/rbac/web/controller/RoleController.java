@@ -70,8 +70,6 @@ public class RoleController {
 
 	/**
 	 * 获取所有角色
-	 * @param roleInfo
-	 * @param pageable
 	 * @return
 	 */
 	@GetMapping

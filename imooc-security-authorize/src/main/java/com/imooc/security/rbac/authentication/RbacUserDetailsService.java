@@ -19,8 +19,8 @@ import com.imooc.security.rbac.repository.AdminRepository;
  * @author zhailiang
  *
  */
-@Component
-@Transactional
+//@Component
+//@Transactional
 public class RbacUserDetailsService implements UserDetailsService {
 
 	private Logger logger = LoggerFactory.getLogger(getClass());
@@ -28,12 +28,6 @@ public class RbacUserDetailsService implements UserDetailsService {
 	@Autowired
 	private AdminRepository adminRepository;
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.springframework.security.core.userdetails.UserDetailsService#
-	 * loadUserByUsername(java.lang.String)
-	 */
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		logger.info("表单登录用户名:" + username);

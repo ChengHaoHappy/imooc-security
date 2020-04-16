@@ -34,7 +34,6 @@ public class AdminController {
 	
 	/**
 	 * 获取当前登录的管理员信息
-	 * @param adminInfo
 	 * @return
 	 */
 	@GetMapping("/me")
@@ -85,7 +84,6 @@ public class AdminController {
 
 	/**
 	 * 分页查询管理员
-	 * @param adminInfo
 	 * @param pageable
 	 * @return
 	 */

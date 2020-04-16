@@ -19,9 +19,6 @@ import com.imooc.security.core.authorize.AuthorizeConfigProvider;
 @Order(Integer.MAX_VALUE) //控制anyRequest()要放在最后
 public class RbacAuthorizeConfigProvider implements AuthorizeConfigProvider {
 
-	/* (non-Javadoc)
-	 * @see com.imooc.security.core.authorize.AuthorizeConfigProvider#config(org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer.ExpressionInterceptUrlRegistry)
-	 */
 	@Override
 	public boolean config(ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry config) {
 		config

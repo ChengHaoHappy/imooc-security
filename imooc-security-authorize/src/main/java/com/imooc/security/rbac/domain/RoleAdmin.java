@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
 
 /**
@@ -20,6 +21,7 @@ import org.springframework.data.annotation.CreatedDate;
  * @author zhailiang
  *
  */
+@Data
 @Entity
 public class RoleAdmin {
 
@@ -45,41 +47,6 @@ public class RoleAdmin {
 	 */
 	@ManyToOne
 	private Admin admin;
-	/**
-	 * @return the id
-	 */
-	public Long getId() {
-		return id;
-	}
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(Long id) {
-		this.id = id;
-	}
-	/**
-	 * @return the role
-	 */
-	public Role getRole() {
-		return role;
-	}
-	/**
-	 * @param role the role to set
-	 */
-	public void setRole(Role role) {
-		this.role = role;
-	}
-	/**
-	 * @return the admin
-	 */
-	public Admin getAdmin() {
-		return admin;
-	}
-	/**
-	 * @param admin the admin to set
-	 */
-	public void setAdmin(Admin admin) {
-		this.admin = admin;
-	}
+
 	
 }

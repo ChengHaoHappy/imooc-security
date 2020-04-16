@@ -20,6 +20,7 @@ import javax.persistence.OrderBy;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import lombok.Data;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.annotation.CreatedDate;
@@ -34,6 +35,7 @@ import com.imooc.security.rbac.dto.ResourceInfo;
  * @author zhailiang
  *
  */
+@Data
 @Entity
 public class Resource {
 
@@ -107,95 +109,5 @@ public class Resource {
 	 * 序号
 	 */
 	private int sort;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public Set<String> getUrls() {
-		return urls;
-	}
-
-	public void setUrls(Set<String> urls) {
-		this.urls = urls;
-	}
-
-	public Resource getParent() {
-		return parent;
-	}
-
-	public void setParent(Resource parent) {
-		this.parent = parent;
-	}
-
-	public List<Resource> getChilds() {
-		return childs;
-	}
-
-	public void setChilds(List<Resource> childs) {
-		this.childs = childs;
-	}
-
-	public int getSort() {
-		return sort;
-	}
-
-	public void setSort(int sort) {
-		this.sort = sort;
-	}
-
-	/**
-	 * @return the link
-	 */
-	public String getLink() {
-		return link;
-	}
-
-	/**
-	 * @param link the link to set
-	 */
-	public void setLink(String link) {
-		this.link = link;
-	}
-
-	/**
-	 * @return the icon
-	 */
-	public String getIcon() {
-		return icon;
-	}
-
-	/**
-	 * @param icon the icon to set
-	 */
-	public void setIcon(String icon) {
-		this.icon = icon;
-	}
-
-	/**
-	 * @return the type
-	 */
-	public ResourceType getType() {
-		return type;
-	}
-
-	/**
-	 * @param type the type to set
-	 */
-	public void setType(ResourceType type) {
-		this.type = type;
-	}
 
 }

@@ -3,10 +3,13 @@
  */
 package com.imooc.security.rbac.web.controller.support;
 
+import lombok.Data;
+
 /**
  * @author zhailiang
  *
  */
+@Data
 public class SimpleResponse {
 	
 	public SimpleResponse(Object content){
@@ -15,12 +18,4 @@ public class SimpleResponse {
 	
 	private Object content;
 
-	public Object getContent() {
-		return content;
-	}
-
-	public void setContent(Object content) {
-		this.content = content;
-	}
-	
 }

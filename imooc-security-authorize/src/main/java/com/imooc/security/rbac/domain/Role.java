@@ -16,6 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
 
 /**
@@ -24,6 +25,7 @@ import org.springframework.data.annotation.CreatedDate;
  * @author zhailiang
  *
  */
+@Data
 @Entity
 public class Role {
 	
@@ -55,53 +57,5 @@ public class Role {
 	@OneToMany(mappedBy = "role", cascade = CascadeType.REMOVE)
 	private Set<RoleAdmin> admins = new HashSet<>();
 
-	/**
-	 * @return the id
-	 */
-	public Long getId() {
-		return id;
-	}
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(Long id) {
-		this.id = id;
-	}
-	/**
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
-	}
-	/**
-	 * @param name the name to set
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
-	/**
-	 * @return the resources
-	 */
-	public Set<RoleResource> getResources() {
-		return resources;
-	}
-	/**
-	 * @param resources the resources to set
-	 */
-	public void setResources(Set<RoleResource> resources) {
-		this.resources = resources;
-	}
-	/**
-	 * @return the admins
-	 */
-	public Set<RoleAdmin> getAdmins() {
-		return admins;
-	}
-	/**
-	 * @param admins the admins to set
-	 */
-	public void setAdmins(Set<RoleAdmin> admins) {
-		this.admins = admins;
-	}
 	
 }
