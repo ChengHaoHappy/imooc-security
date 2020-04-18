@@ -1,14 +1,12 @@
 /**
  * 
  */
-package com.imooc.security.browser.authentication;
+package com.imooc.oauth.example.authentication;
 
-import java.io.IOException;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.imooc.security.core.properties.LoginResponseType;
+import com.imooc.security.core.properties.SecurityProperties;
+import com.imooc.security.core.support.SimpleResponse;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,10 +17,10 @@ import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
 import org.springframework.security.web.savedrequest.RequestCache;
 import org.springframework.stereotype.Component;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.imooc.security.core.properties.LoginResponseType;
-import com.imooc.security.core.properties.SecurityProperties;
-import com.imooc.security.core.support.SimpleResponse;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /**
  * 浏览器环境下登录成功的处理器

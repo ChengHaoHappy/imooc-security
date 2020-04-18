@@ -17,9 +17,6 @@ import org.springframework.security.oauth2.provider.token.TokenEnhancer;
  */
 public class TokenJwtEnhancer implements TokenEnhancer {
 
-	/* (non-Javadoc)
-	 * @see org.springframework.security.oauth2.provider.token.TokenEnhancer#enhance(org.springframework.security.oauth2.common.OAuth2AccessToken, org.springframework.security.oauth2.provider.OAuth2Authentication)
-	 */
 	@Override
 	public OAuth2AccessToken enhance(OAuth2AccessToken accessToken, OAuth2Authentication authentication) {
 		Map<String, Object> info = new HashMap<>();

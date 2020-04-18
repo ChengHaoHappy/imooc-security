@@ -39,10 +39,7 @@ public class SmsCodeAuthenticationSecurityConfig extends SecurityConfigurerAdapt
 	
 	@Autowired
 	private PersistentTokenRepository persistentTokenRepository;
-	
-	/* (non-Javadoc)
-	 * @see org.springframework.security.config.annotation.SecurityConfigurerAdapter#configure(org.springframework.security.config.annotation.SecurityBuilder)
-	 */
+
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
 		

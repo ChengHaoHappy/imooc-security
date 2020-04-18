@@ -3,8 +3,8 @@
  */
 package com.imooc.security;
 
-import com.imooc.security.rbac.domain.Admin;
-import com.imooc.security.rbac.repository.AdminRepository;
+//import com.imooc.security.rbac.domain.Admin;
+//import com.imooc.security.rbac.repository.AdminRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +33,8 @@ public class DemoUserDetailsService implements UserDetailsService, SocialUserDet
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
-	@Autowired
-	private AdminRepository adminRepository;
+//	@Autowired
+//	private AdminRepository adminRepository;
 	
 
 	@Override
@@ -59,7 +59,7 @@ public class DemoUserDetailsService implements UserDetailsService, SocialUserDet
 		
 		return new SocialUser(userId, password,
 				true, true, true, true,
-				AuthorityUtils.commaSeparatedStringToAuthorityList("xxx"));
+				AuthorityUtils.commaSeparatedStringToAuthorityList("admin,ROLE_USER"));
 	}
 
 }

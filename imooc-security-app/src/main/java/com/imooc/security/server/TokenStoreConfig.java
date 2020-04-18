@@ -17,13 +17,14 @@ import org.springframework.security.oauth2.provider.token.store.redis.RedisToken
 
 import com.imooc.security.core.properties.SecurityProperties;
 
+import javax.annotation.Resource;
+
 /**
  * @author zhailiang
  *
  */
 @Configuration
-public class
-TokenStoreConfig {
+public class TokenStoreConfig {
 	
 	/**
 	 * 使用redis存储token的配置，只有在imooc.security.oauth2.tokenStore配置为redis时生效
@@ -34,7 +35,7 @@ TokenStoreConfig {
 	@ConditionalOnProperty(prefix = "imooc.security.oauth2", name = "tokenStore", havingValue = "redis")
 	public static class RedisConfig {
 		
-		@Autowired
+		@Resource
 		private RedisConnectionFactory redisConnectionFactory;
 		
 		/**
@@ -57,7 +58,7 @@ TokenStoreConfig {
 	@ConditionalOnProperty(prefix = "imooc.security.oauth2", name = "tokenStore", havingValue = "jwt", matchIfMissing = true)
 	public static class JwtConfig {
 		
-		@Autowired
+		@Resource
 		private SecurityProperties securityProperties;
 		
 		/**

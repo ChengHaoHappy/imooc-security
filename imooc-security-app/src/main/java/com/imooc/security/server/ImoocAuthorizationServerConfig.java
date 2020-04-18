@@ -25,6 +25,8 @@ import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenCo
 import com.imooc.security.core.properties.OAuth2ClientProperties;
 import com.imooc.security.core.properties.SecurityProperties;
 
+import javax.annotation.Resource;
+
 /**
  * 认证服务器配置
  * 
@@ -35,13 +37,13 @@ import com.imooc.security.core.properties.SecurityProperties;
 @EnableAuthorizationServer
 public class ImoocAuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
 
-	@Autowired
+	@Resource
 	private UserDetailsService userDetailsService;
 
-	@Autowired
+	@Resource
 	private AuthenticationManager authenticationManager;
 
-	@Autowired
+	@Resource
 	private TokenStore tokenStore;
 
 	@Autowired(required = false)

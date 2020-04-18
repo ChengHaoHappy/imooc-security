@@ -46,7 +46,6 @@ public class OpenIdAuthenticationToken extends AbstractAuthenticationToken {
 	 * authentication token.
 	 *
 	 * @param principal
-	 * @param credentials
 	 * @param authorities
 	 */
 	public OpenIdAuthenticationToken(Object principal,

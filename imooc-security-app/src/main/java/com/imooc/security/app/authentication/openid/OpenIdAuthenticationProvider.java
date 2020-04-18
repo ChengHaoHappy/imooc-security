@@ -6,6 +6,7 @@ package com.imooc.security.app.authentication.openid;
 import java.util.HashSet;
 import java.util.Set;
 
+import lombok.Data;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.InternalAuthenticationServiceException;
@@ -19,6 +20,7 @@ import org.springframework.social.security.SocialUserDetailsService;
  * @author zhailiang
  *
  */
+@Data
 public class OpenIdAuthenticationProvider implements AuthenticationProvider {
 
 	private SocialUserDetailsService userDetailsService;
@@ -68,22 +70,6 @@ public class OpenIdAuthenticationProvider implements AuthenticationProvider {
 	@Override
 	public boolean supports(Class<?> authentication) {
 		return OpenIdAuthenticationToken.class.isAssignableFrom(authentication);
-	}
-
-	public SocialUserDetailsService getUserDetailsService() {
-		return userDetailsService;
-	}
-
-	public void setUserDetailsService(SocialUserDetailsService userDetailsService) {
-		this.userDetailsService = userDetailsService;
-	}
-
-	public UsersConnectionRepository getUsersConnectionRepository() {
-		return usersConnectionRepository;
-	}
-
-	public void setUsersConnectionRepository(UsersConnectionRepository usersConnectionRepository) {
-		this.usersConnectionRepository = usersConnectionRepository;
 	}
 
 }

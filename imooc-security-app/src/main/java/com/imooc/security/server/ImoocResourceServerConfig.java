@@ -18,6 +18,8 @@ import com.imooc.security.core.authentication.mobile.SmsCodeAuthenticationSecuri
 import com.imooc.security.core.authorize.AuthorizeConfigManager;
 import com.imooc.security.core.validate.code.ValidateCodeSecurityConfig;
 
+import javax.annotation.Resource;
+
 /**
  * 资源服务器配置
  * 
@@ -27,29 +29,29 @@ import com.imooc.security.core.validate.code.ValidateCodeSecurityConfig;
 @Configuration
 @EnableResourceServer
 public class ImoocResourceServerConfig extends ResourceServerConfigurerAdapter {
-	
-	@Autowired
+
+	@Resource
 	protected AuthenticationSuccessHandler imoocAuthenticationSuccessHandler;
-	
-	@Autowired
+
+	@Resource
 	protected AuthenticationFailureHandler imoocAuthenticationFailureHandler;
-	
-	@Autowired
+
+	@Resource
 	private SmsCodeAuthenticationSecurityConfig smsCodeAuthenticationSecurityConfig;
-	
-	@Autowired
+
+	@Resource
 	private OpenIdAuthenticationSecurityConfig openIdAuthenticationSecurityConfig;
-	
-	@Autowired
+
+	@Resource
 	private ValidateCodeSecurityConfig validateCodeSecurityConfig;
-	
-	@Autowired
+
+	@Resource
 	private SpringSocialConfigurer imoocSocialSecurityConfig;
-	
-	@Autowired
+
+	@Resource
 	private AuthorizeConfigManager authorizeConfigManager;
-	
-	@Autowired
+
+	@Resource
 	private FormAuthenticationConfig formAuthenticationConfig;
 	
 	@Override

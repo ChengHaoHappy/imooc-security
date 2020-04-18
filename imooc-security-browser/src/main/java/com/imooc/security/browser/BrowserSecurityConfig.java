@@ -66,7 +66,10 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
 	private FormAuthenticationConfig formAuthenticationConfig;
-	
+
+	@Autowired
+	private PersistentTokenRepository persistentTokenRepository;
+
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		
@@ -80,7 +83,7 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
 				.and()
 			//记住我配置，如果想在'记住我'登录时记录日志，可以注册一个InteractiveAuthenticationSuccessEvent事件的监听器
 			.rememberMe()
-				.tokenRepository(persistentTokenRepository())
+				.tokenRepository(persistentTokenRepository)
 				.tokenValiditySeconds(securityProperties.getBrowser().getRememberMeSeconds())
 				.userDetailsService(userDetailsService)
 				.and()
@@ -102,16 +105,11 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
 		
 	}
 
-	/**
-	 * 记住我功能的token存取器配置
-	 * @return
-	 */
-	@Bean
-	public PersistentTokenRepository persistentTokenRepository() {
-		JdbcTokenRepositoryImpl tokenRepository = new JdbcTokenRepositoryImpl();
-		tokenRepository.setDataSource(dataSource);
-//		tokenRepository.setCreateTableOnStartup(true); //启动时创建表
-		return tokenRepository;
-	}
-	
+//	@Bean
+//	public PersistentTokenRepository persistentTokenRepository() {
+//		JdbcTokenRepositoryImpl tokenRepository = new JdbcTokenRepositoryImpl();
+//		tokenRepository.setDataSource(dataSource);
+////		tokenRepository.setCreateTableOnStartup(true); //启动时创建表
+//		return tokenRepository;
+//	}
 }
