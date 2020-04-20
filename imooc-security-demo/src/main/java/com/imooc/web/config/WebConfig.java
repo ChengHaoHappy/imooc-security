@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -21,17 +22,16 @@ import com.imooc.web.interceptor.TimeInterceptor;
  */
 @Configuration
 public class WebConfig extends WebMvcConfigurerAdapter {
-	
-	@SuppressWarnings("unused")
+
 	@Autowired
 	private TimeInterceptor timeInterceptor;
 	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
-//		registry.addInterceptor(timeInterceptor);
+		registry.addInterceptor(timeInterceptor);
 	}
 	
-//	@Bean
+	@Bean
 	public FilterRegistrationBean timeFilter() {
 		
 		FilterRegistrationBean registrationBean = new FilterRegistrationBean();

@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.imooc.web.controller;
 
@@ -10,8 +10,13 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import com.imooc.security.core.properties.SecurityProperties;
+import io.jsonwebtoken.*;
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -32,10 +37,6 @@ import com.fasterxml.jackson.annotation.JsonView;
 import com.imooc.dto.User;
 import com.imooc.dto.UserQueryCondition;
 
-import io.jsonwebtoken.ExpiredJwtException;
-import io.jsonwebtoken.MalformedJwtException;
-import io.jsonwebtoken.SignatureException;
-import io.jsonwebtoken.UnsupportedJwtException;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
@@ -43,40 +44,41 @@ import io.swagger.annotations.ApiParam;
  * @author zhailiang
  *
  */
+@Slf4j
 @RestController
 @RequestMapping("/user")
 public class   UserController {
-	
+
 	@Autowired
 	private ProviderSignInUtils providerSignInUtils;
-	
+
 //	@Autowired
 //	private AppSingUpUtils appSingUpUtils;
-	
-//	@Autowired
-//	private SecurityProperties securityProperties;
-	
+
+	@Autowired
+	private SecurityProperties securityProperties;
+
 	@PostMapping("/regist")
 	public void regist(User user, HttpServletRequest request) {
-		
+
 		//不管是注册用户还是绑定用户，都会拿到一个用户唯一标识。
 		String userId = user.getUsername();
 		providerSignInUtils.doPostSignUp(userId, new ServletWebRequest(request));//插入到数据库
 //		appSingUpUtils.doPostSignUp(new ServletWebRequest(request), userId);
 	}
-	
+
 	@GetMapping("/me")
 	public Object getCurrentUser(Authentication user, HttpServletRequest request) throws ExpiredJwtException, UnsupportedJwtException, MalformedJwtException, SignatureException, IllegalArgumentException, UnsupportedEncodingException {
-		
+		//解析TokenJwtEnhancer添加的东西
 //		String token = StringUtils.substringAfter(request.getHeader("Authorization"), "bearer ");
-//		
+//
 //		Claims claims = Jwts.parser().setSigningKey(securityProperties.getOauth2().getJwtSigningKey().getBytes("UTF-8"))
 //					.parseClaimsJws(token).getBody();
-//		
+//
 //		String company = (String) claims.get("company");
-//		
-//		System.out.println(company);
-		
+//
+//		log.info(company);
+
 		return user;
 	}
 
@@ -133,7 +135,7 @@ public class   UserController {
 	@JsonView(User.UserDetailView.class)
 	public User getInfo(@ApiParam("用户id") @PathVariable String id) {
 //		throw new RuntimeException("user not exist");
-		System.out.println("进入getInfo服务");
+		log.info("进入getInfo服务");
 		User user = new User();
 		user.setUsername("tom");
 		return user;

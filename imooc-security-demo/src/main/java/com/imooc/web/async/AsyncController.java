@@ -14,8 +14,7 @@ import org.springframework.web.context.request.async.DeferredResult;
 import java.util.concurrent.Callable;
 
 /**
- * @author zhailiang
- *
+ *  使用多线程提高 Rest服务
  */
 @RestController
 public class AsyncController {

@@ -99,8 +99,6 @@ public class OpenIdAuthenticationFilter extends AbstractAuthenticationProcessing
 	 * Sets the parameter name which will be used to obtain the username from
 	 * the login request.
 	 *
-	 * @param usernameParameter
-	 *            the parameter name. Defaults to "username".
 	 */
 	public void setOpenIdParameter(String openIdParameter) {
 		Assert.hasText(openIdParameter, "Username parameter must not be empty or null");

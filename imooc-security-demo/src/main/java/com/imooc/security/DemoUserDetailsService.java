@@ -39,6 +39,7 @@ public class DemoUserDetailsService implements UserDetailsService, SocialUserDet
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		//根据授权模块
 //		logger.info("表单登录用户名:" + username);
 //		Admin admin = adminRepository.findByUsername(username);
 //		return admin;

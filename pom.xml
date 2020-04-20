@@ -13,9 +13,8 @@
         <module>imooc-security-core</module>
         <module>imooc-security-demo</module>
         <module>imooc-security-authorize</module>
-        <module>test</module>
-        <module>imooc-example-app</module>
         <module>imooc-oauth-example</module>
+        <module>test</module>
     </modules>
     <packaging>pom</packaging>
 

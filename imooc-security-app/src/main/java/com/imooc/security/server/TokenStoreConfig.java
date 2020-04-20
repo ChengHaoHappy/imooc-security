@@ -5,6 +5,7 @@ package com.imooc.security.server;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -70,6 +71,7 @@ public class TokenStoreConfig {
 		}
 		
 		/**
+		 * 添加密签
 		 * @return
 		 */
 		@Bean
@@ -83,7 +85,7 @@ public class TokenStoreConfig {
 		 * @return
 		 */
 		@Bean
-		@ConditionalOnBean(TokenEnhancer.class)
+		@ConditionalOnMissingBean(TokenEnhancer.class)
 		public TokenEnhancer jwtTokenEnhancer(){
 			return new TokenJwtEnhancer();
 		}

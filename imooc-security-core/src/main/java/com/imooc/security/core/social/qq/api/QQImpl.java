@@ -3,13 +3,14 @@
  */
 package com.imooc.security.core.social.qq.api;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.social.oauth2.AbstractOAuth2ApiBinding;
 import org.springframework.social.oauth2.TokenStrategy;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-
+@Slf4j
 public class QQImpl extends AbstractOAuth2ApiBinding implements QQ {
 
 	//获取openId
@@ -33,7 +34,7 @@ public class QQImpl extends AbstractOAuth2ApiBinding implements QQ {
 		String url = String.format(URL_GET_OPENID, accessToken);
 		String result = getRestTemplate().getForObject(url, String.class);
 		
-		System.out.println(result);
+		log.info(result);
 		
 		this.openId = StringUtils.substringBetween(result, "\"openid\":\"", "\"}");
 	}

@@ -12,7 +12,7 @@ import com.imooc.security.core.properties.SecurityConstants;
 import com.imooc.security.core.social.support.ImoocSpringSocialConfigurer;
 
 /**
- * @author zhailiang
+ * Spring容器的所有Bean初始化的时候都需要经过BeanPostProcessor接口的两个方法
  *
  */
 @Component
@@ -24,6 +24,7 @@ public class SpringSocialConfigurerPostProcessor implements BeanPostProcessor {
 		return bean;
 	}
 
+	//替换core里设置的注册页
 	@Override
 	public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
 		if(StringUtils.equals(beanName, "imoocSocialSecurityConfig")){

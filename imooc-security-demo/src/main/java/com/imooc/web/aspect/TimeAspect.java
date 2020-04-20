@@ -31,7 +31,9 @@ public class TimeAspect {
 		long start = new Date().getTime();
 		
 		Object object = pjp.proceed();
-		
+
+		System.out.println(object);
+
 		System.out.println("time aspect 耗时:"+ (new Date().getTime() - start));
 		
 		System.out.println("time aspect end");

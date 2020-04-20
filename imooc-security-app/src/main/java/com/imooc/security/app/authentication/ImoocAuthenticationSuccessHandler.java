@@ -62,12 +62,15 @@ public class ImoocAuthenticationSuccessHandler extends SavedRequestAwareAuthenti
 			throw new UnapprovedClientAuthenticationException("请求头中无client信息");
 		}
 
+		//从请求头中截取tokens
 		String[] tokens = extractAndDecodeHeader(header, request);
 		assert tokens.length == 2;
 
+		//获取第三方用户登录名，密码
 		String clientId = tokens[0];
 		String clientSecret = tokens[1];
 
+		//获取client信息
 		ClientDetails clientDetails = clientDetailsService.loadClientByClientId(clientId);
 
 		if (clientDetails == null) {
@@ -75,8 +78,9 @@ public class ImoocAuthenticationSuccessHandler extends SavedRequestAwareAuthenti
 		} else if (!StringUtils.equals(clientDetails.getClientSecret(), clientSecret)) {
 			throw new UnapprovedClientAuthenticationException("clientSecret不匹配:" + clientId);
 		}
-		
-		TokenRequest tokenRequest = new TokenRequest(MapUtils.EMPTY_MAP, clientId, clientDetails.getScope(), "custom");
+
+		//生成TokenRequest
+		TokenRequest tokenRequest = new TokenRequest(MapUtils.EMPTY_MAP, clientId, clientDetails.getScope(), "custom");//自定义模式
 		
 		OAuth2Request oAuth2Request = tokenRequest.createOAuth2Request(clientDetails);
 		

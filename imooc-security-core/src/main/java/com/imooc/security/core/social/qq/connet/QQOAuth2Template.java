@@ -36,7 +36,7 @@ public class QQOAuth2Template extends OAuth2Template {
 
 
     /**
-     * 重写postForAccessGrant，因为qq获取令牌的api，返回的时字符串，不是map
+     * 重写postForAccessGrant，因为qq获取令牌的api，返回的是字符串，不是map
      * @param accessTokenUrl
      * @param parameters
      * @return
